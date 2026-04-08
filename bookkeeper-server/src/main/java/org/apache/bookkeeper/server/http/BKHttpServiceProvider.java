@@ -120,7 +120,12 @@ public class BKHttpServiceProvider implements HttpServiceProvider {
         }
     }
 
-    private ServerConfiguration getServerConf() {
+    /**
+     * Get the server configuration.
+     *
+     * @return the server configuration, or null if not available
+     */
+    public ServerConfiguration getServerConf() {
         return serverConf;
     }
 
@@ -130,6 +135,15 @@ public class BKHttpServiceProvider implements HttpServiceProvider {
 
     private Bookie getBookie() {
         return bookieServer == null ? null : bookieServer.getBookie();
+    }
+
+    /**
+     * Get the bookie server instance.
+     *
+     * @return the bookie server, or null if not available
+     */
+    public BookieServer getBookieServer() {
+        return bookieServer;
     }
 
     /**
