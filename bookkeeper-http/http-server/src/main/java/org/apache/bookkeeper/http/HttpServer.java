@@ -130,4 +130,12 @@ public interface HttpServer {
      * Check whether the HTTP server is still running.
      */
     boolean isRunning();
+
+    /**
+     * Set the HTTP extension class names to be loaded by the server.
+     *
+     * @param extensionClasses fully-qualified class names of {@link HttpExtension} implementations
+     */
+    default void setHttpExtensionClasses(String[] extensionClasses) {
+    }
 }

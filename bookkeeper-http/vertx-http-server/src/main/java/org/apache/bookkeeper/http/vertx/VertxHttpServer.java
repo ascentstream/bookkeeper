@@ -27,12 +27,19 @@ import io.vertx.core.http.ClientAuth;
 import io.vertx.core.http.HttpServerOptions;
 import io.vertx.core.net.JksOptions;
 import io.vertx.ext.web.Router;
+import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.handler.BodyHandler;
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
+import com.google.common.base.Strings;
+import java.util.EnumSet;
+import java.util.List;
+import java.util.Set;
 import lombok.CustomLog;
+import org.apache.bookkeeper.http.HttpEndpoint;
+import org.apache.bookkeeper.http.HttpExtension;
 import org.apache.bookkeeper.http.HttpRouter;
 import org.apache.bookkeeper.http.HttpServer;
 import org.apache.bookkeeper.http.HttpServerConfiguration;
@@ -47,6 +54,7 @@ public class VertxHttpServer implements HttpServer {
     private final Vertx vertx;
     private boolean isRunning;
     private HttpServiceProvider httpServiceProvider;
+    private String[] httpExtensionClasses;
     private int listeningPort = -1;
 
     public VertxHttpServer() {
@@ -60,6 +68,14 @@ public class VertxHttpServer implements HttpServer {
     @Override
     public void initialize(HttpServiceProvider httpServiceProvider) {
         this.httpServiceProvider = httpServiceProvider;
+    }
+
+    /**
+     * Set the HTTP extension class names to load.
+     */
+    @Override
+    public void setHttpExtensionClasses(String[] extensionClasses) {
+        this.httpExtensionClasses = extensionClasses;
     }
 
     @Override
@@ -88,6 +104,7 @@ public class VertxHttpServer implements HttpServer {
             }
         };
         requestRouter.bindAll();
+        registerExtensions(router);
         vertx.deployVerticle(new AbstractVerticle() {
             @Override
             public void start() throws Exception {
@@ -128,6 +145,50 @@ public class VertxHttpServer implements HttpServer {
                     .log("Failed to start org.apache.bookkeeper.http server");
         }
         return false;
+    }
+
+    /**
+     * Load and register all configured HTTP extensions.
+     */
+    private void registerExtensions(Router router) {
+        if (httpExtensionClasses == null || httpExtensionClasses.length == 0) {
+            return;
+        }
+        for (String className : httpExtensionClasses) {
+            if (Strings.isNullOrEmpty(className)) {
+                continue;
+            }
+            try {
+                Class<? extends HttpExtension> cls =
+                    Class.forName(className.trim()).asSubclass(HttpExtension.class);
+                HttpExtension ext = cls.getDeclaredConstructor().newInstance();
+                List<HttpEndpoint> endpoints = ext.getEndpoints(httpServiceProvider);
+                for (HttpEndpoint endpoint : endpoints) {
+                    String path = endpoint.getPath();
+                    if (path == null || !path.startsWith("/")) {
+                        LOG.warn("Skipping invalid extension path: {} (must be non-null and start with '/')", path);
+                        continue;
+                    }
+                    LOG.info("Loading HTTP extension: {} -> {}", path, className);
+                    VertxAbstractHandler handler = new VertxAbstractHandler() {
+                        @Override
+                        public void handle(RoutingContext ctx) {
+                            processRequest(endpoint.getService(), ctx);
+                        }
+                    };
+                    Set<HttpServer.Method> methods = endpoint.getMethods();
+                    if (methods == null) {
+                        methods = EnumSet.allOf(HttpServer.Method.class);
+                    }
+                    if (methods.contains(HttpServer.Method.GET))    router.get(path).blockingHandler(handler);
+                    if (methods.contains(HttpServer.Method.PUT))    router.put(path).blockingHandler(handler);
+                    if (methods.contains(HttpServer.Method.POST))   router.post(path).blockingHandler(handler);
+                    if (methods.contains(HttpServer.Method.DELETE)) router.delete(path).blockingHandler(handler);
+                }
+            } catch (Exception e) {
+                LOG.error("Failed to load HTTP extension: {}", className, e);
+            }
+        }
     }
 
     @Override
