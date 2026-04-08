@@ -280,6 +280,9 @@ public class ServerConfiguration extends AbstractConfiguration<ServerConfigurati
     protected static final String HTTP_SERVER_TRUST_STORE_PATH = "httpServerTrustStorePath";
     protected static final String HTTP_SERVER_TRUST_STORE_PASSWORD = "httpServerTrustStorePassword";
 
+    // HTTP Extensions
+    protected static final String HTTP_EXTENSIONS = "httpExtensions";
+
     // Lifecycle Components
     protected static final String EXTRA_SERVER_COMPONENTS = "extraServerComponents";
     protected static final String IGNORE_EXTRA_SERVER_COMPONENTS_STARTUP_FAILURES =
@@ -3723,6 +3726,30 @@ public class ServerConfiguration extends AbstractConfiguration<ServerConfigurati
      */
     public ServerConfiguration setHttpServerTrustStorePasswordPassword(String trustStorePassword) {
         setProperty(HTTP_SERVER_TRUST_STORE_PASSWORD, trustStorePassword);
+        return this;
+    }
+
+    /**
+     * Get the list of HTTP extension classes to load.
+     *
+     * @return the list of HTTP extension class names, or null if not configured.
+     */
+    public String[] getHttpExtensions() {
+        String val = getString(HTTP_EXTENSIONS);
+        if (Strings.isNullOrEmpty(val)) {
+            return null;
+        }
+        return getStringArray(HTTP_EXTENSIONS);
+    }
+
+    /**
+     * Set the list of HTTP extension classes to load.
+     *
+     * @param extensions the list of HTTP extension class names
+     * @return server configuration.
+     */
+    public ServerConfiguration setHttpExtensions(String[] extensions) {
+        setProperty(HTTP_EXTENSIONS, extensions);
         return this;
     }
 
