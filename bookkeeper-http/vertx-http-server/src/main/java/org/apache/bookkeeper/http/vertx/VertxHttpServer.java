@@ -20,6 +20,7 @@
  */
 package org.apache.bookkeeper.http.vertx;
 
+import com.google.common.base.Strings;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Vertx;
@@ -30,13 +31,12 @@ import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.handler.BodyHandler;
 import java.io.IOException;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutionException;
-import com.google.common.base.Strings;
 import java.util.EnumSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutionException;
 import org.apache.bookkeeper.http.HttpEndpoint;
 import org.apache.bookkeeper.http.HttpExtension;
 import org.apache.bookkeeper.http.HttpRouter;
@@ -179,10 +179,18 @@ public class VertxHttpServer implements HttpServer {
                     if (methods == null) {
                         methods = EnumSet.allOf(HttpServer.Method.class);
                     }
-                    if (methods.contains(HttpServer.Method.GET))    router.get(path).blockingHandler(handler);
-                    if (methods.contains(HttpServer.Method.PUT))    router.put(path).blockingHandler(handler);
-                    if (methods.contains(HttpServer.Method.POST))   router.post(path).blockingHandler(handler);
-                    if (methods.contains(HttpServer.Method.DELETE)) router.delete(path).blockingHandler(handler);
+                    if (methods.contains(HttpServer.Method.GET)) {
+                        router.get(path).blockingHandler(handler);
+                    }
+                    if (methods.contains(HttpServer.Method.PUT)) {
+                        router.put(path).blockingHandler(handler);
+                    }
+                    if (methods.contains(HttpServer.Method.POST)) {
+                        router.post(path).blockingHandler(handler);
+                    }
+                    if (methods.contains(HttpServer.Method.DELETE)) {
+                        router.delete(path).blockingHandler(handler);
+                    }
                 }
             } catch (Exception e) {
                 LOG.error("Failed to load HTTP extension: {}", className, e);

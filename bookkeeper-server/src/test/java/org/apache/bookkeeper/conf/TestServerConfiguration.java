@@ -24,6 +24,7 @@ package org.apache.bookkeeper.conf;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -259,5 +260,38 @@ public class TestServerConfiguration {
 
         conf.setEntryLocationCompactionInterval(650);
         conf.validate();
+    }
+
+    @Test
+    public void testGetHttpExtensions_DefaultNull() {
+        ServerConfiguration conf = new ServerConfiguration();
+        assertNull(conf.getHttpExtensions());
+    }
+
+    @Test
+    public void testSetAndGetHttpExtensions() {
+        ServerConfiguration conf = new ServerConfiguration();
+        String[] extensions = new String[]{
+                "com.example.ExtensionA",
+                "com.example.ExtensionB"
+        };
+        conf.setHttpExtensions(extensions);
+        assertArrayEquals(extensions, conf.getHttpExtensions());
+    }
+
+    @Test
+    public void testSetHttpExtensions_EmptyArray() {
+        ServerConfiguration conf = new ServerConfiguration();
+        conf.setHttpExtensions(new String[]{});
+        // The getter treats empty-string values as "not configured" and returns null
+        assertNull(conf.getHttpExtensions());
+    }
+
+    @Test
+    public void testHttpExtensions_Chainable() {
+        ServerConfiguration conf = new ServerConfiguration();
+        ServerConfiguration returned = conf.setHttpExtensions(
+                new String[]{"com.example.Extension"});
+        assertSame(conf, returned);
     }
 }
