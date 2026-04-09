@@ -22,6 +22,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 import com.google.common.collect.Maps;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
+import org.apache.bookkeeper.client.BKException;
 import org.apache.bookkeeper.client.api.LedgerMetadata;
 import org.apache.bookkeeper.common.util.JsonUtil;
 import org.apache.bookkeeper.conf.ServerConfiguration;
@@ -63,20 +65,31 @@ public class GetLedgerMetaService implements HttpEndpointService {
             Long ledgerId = Long.parseLong(params.get("ledger_id"));
 
             LedgerManager manager = ledgerManagerFactory.newLedgerManager();
+            try {
+                // output <ledgerId: ledgerMetadata>
+                Map<String, Object> output = Maps.newHashMap();
+                LedgerMetadata md = manager.readLedgerMetadata(ledgerId).get().getValue();
+                output.put(ledgerId.toString(), md);
 
-            // output <ledgerId: ledgerMetadata>
-            Map<String, Object> output = Maps.newHashMap();
-            LedgerMetadata md = manager.readLedgerMetadata(ledgerId).get().getValue();
-            output.put(ledgerId.toString(), md);
-
-            manager.close();
-
-            String jsonResponse = JsonUtil.toJson(output);
-            if (LOG.isDebugEnabled()) {
-                LOG.debug("output body:" + jsonResponse);
+                String jsonResponse = JsonUtil.toJson(output);
+                if (LOG.isDebugEnabled()) {
+                    LOG.debug("output body:" + jsonResponse);
+                }
+                response.setBody(jsonResponse);
+                response.setCode(HttpServer.StatusCode.OK);
+            } catch (ExecutionException e) {
+                if (e.getCause() instanceof BKException.BKNoSuchLedgerExistsOnMetadataServerException) {
+                    LOG.debug("Ledger {} not found on metadata server", ledgerId);
+                    response.setCode(HttpServer.StatusCode.NOT_FOUND);
+                    response.setBody("Ledger " + ledgerId + " not found on metadata server");
+                } else {
+                    LOG.error("Failed to read ledger metadata for {}", ledgerId, e.getCause());
+                    response.setCode(HttpServer.StatusCode.INTERNAL_ERROR);
+                    response.setBody("Failed to read ledger metadata: " + e.getCause().getMessage());
+                }
+            } finally {
+                manager.close();
             }
-            response.setBody(jsonResponse);
-            response.setCode(HttpServer.StatusCode.OK);
             return response;
         } else {
             response.setCode(HttpServer.StatusCode.NOT_FOUND);

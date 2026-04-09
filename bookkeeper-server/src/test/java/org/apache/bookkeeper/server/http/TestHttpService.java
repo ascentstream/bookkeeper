@@ -415,6 +415,22 @@ public class TestHttpService extends BookKeeperClusterTestCase {
     }
 
     @Test
+    public void testGetLedgerMetaServiceNotFound() throws Exception {
+        baseConf.setMetadataServiceUri(zkUtil.getMetadataServiceUri());
+        HttpEndpointService getLedgerMetaService = bkHttpServiceProvider
+            .provideHttpEndpointService(HttpServer.ApiType.GET_LEDGER_META);
+
+        // query a non-existent ledger, should return NOT_FOUND
+        HashMap<String, String> params = Maps.newHashMap();
+        long nonExistentLedgerId = 99999999L;
+        params.put("ledger_id", Long.toString(nonExistentLedgerId));
+        HttpServiceRequest request = new HttpServiceRequest(null, HttpServer.Method.GET, params);
+        HttpServiceResponse response = getLedgerMetaService.handle(request);
+        assertEquals(HttpServer.StatusCode.NOT_FOUND.getValue(), response.getStatusCode());
+        assertTrue(response.getBody().contains("not found on metadata server"));
+    }
+
+    @Test
     public void testReadLedgerEntryService() throws Exception {
         BookKeeper.DigestType digestType = BookKeeper.DigestType.CRC32;
         int numLedgers = 1;
