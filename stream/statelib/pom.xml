@@ -20,11 +20,11 @@
 
   <parent>
     <artifactId>stream-storage-parent</artifactId>
-    <groupId>org.apache.bookkeeper</groupId>
+    <groupId>com.ascentstream.bookkeeper</groupId>
     <version>4.16.8-SNAPSHOT</version>
     <relativePath>..</relativePath>
   </parent>
-  <groupId>org.apache.bookkeeper</groupId>
+  <groupId>com.ascentstream.bookkeeper</groupId>
   <artifactId>statelib</artifactId>
   <name>Apache BookKeeper :: Stream Storage :: State Library</name>
   <dependencies>
@@ -34,22 +34,22 @@
       <version>${project.parent.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.apache.bookkeeper</groupId>
+      <groupId>com.ascentstream.bookkeeper</groupId>
       <artifactId>bookkeeper-common</artifactId>
       <version>${project.parent.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.apache.bookkeeper</groupId>
+      <groupId>com.ascentstream.bookkeeper</groupId>
       <artifactId>stream-storage-common</artifactId>
       <version>${project.parent.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.apache.bookkeeper</groupId>
+      <groupId>com.ascentstream.bookkeeper</groupId>
       <artifactId>stream-storage-api</artifactId>
       <version>${project.parent.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.apache.bookkeeper</groupId>
+      <groupId>com.ascentstream.bookkeeper</groupId>
       <artifactId>stream-storage-proto</artifactId>
       <version>${project.parent.version}</version>
     </dependency>
@@ -98,7 +98,7 @@
     </dependency>
 
     <dependency>
-      <groupId>org.apache.bookkeeper</groupId>
+      <groupId>com.ascentstream.bookkeeper</groupId>
       <artifactId>testtools</artifactId>
       <version>${project.parent.version}</version>
       <scope>test</scope>
