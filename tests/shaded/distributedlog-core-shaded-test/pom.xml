@@ -37,15 +37,15 @@
            to verify protobuf and guava classes have been relocated -->
       <exclusions>
         <exclusion>
-          <groupId>org.apache.bookkeeper</groupId>
+          <groupId>com.ascentstream.bookkeeper</groupId>
           <artifactId>bookkeeper-server</artifactId>
         </exclusion>
         <exclusion>
-          <groupId>org.apache.bookkeeper.http</groupId>
+          <groupId>com.ascentstream.bookkeeper.http</groupId>
           <artifactId>bookkeeper-http</artifactId>
         </exclusion>
         <exclusion>
-          <groupId>org.apache.bookkeeper</groupId>
+          <groupId>com.ascentstream.bookkeeper</groupId>
           <artifactId>circe-checksum</artifactId>
         </exclusion>
         <exclusion>
