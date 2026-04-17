@@ -22,7 +22,7 @@
   <parent>
     <artifactId>bookkeeper-stats-parent</artifactId>
     <groupId>com.ascentstream.bookkeeper.stats</groupId>
-    <version>4.16.8-SNAPSHOT</version>
+    <version>4.16.8.0-93bb222-20260417112121-SNAPSHOT</version>
   </parent>
   <groupId>com.ascentstream.bookkeeper.stats</groupId>
   <artifactId>bookkeeper-stats-utils</artifactId>

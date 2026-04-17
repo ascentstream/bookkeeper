@@ -20,11 +20,11 @@
   <parent>
     <groupId>com.ascentstream.bookkeeper.tests</groupId>
     <artifactId>backward-compat</artifactId>
-    <version>4.16.8-SNAPSHOT</version>
+    <version>4.16.8.0-93bb222-20260417112121-SNAPSHOT</version>
     <relativePath>..</relativePath>
   </parent>
 
-  <groupId>org.apache.bookkeeper.tests.backward-compat</groupId>
+  <groupId>com.ascentstream.bookkeeper.tests.backward-compat</groupId>
   <artifactId>upgrade</artifactId>
   <packaging>jar</packaging>
   <name>Apache BookKeeper :: Tests :: Backward Compatibility :: Test upgrade between all released versions and current version</name>
