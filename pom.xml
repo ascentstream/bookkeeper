@@ -23,7 +23,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.ascentstream.bookkeeper</groupId>
-  <version>4.16.8-SNAPSHOT</version>
+  <version>4.16.8.0-75d50e9-20260421143652-SNAPSHOT</version>
   <artifactId>bookkeeper</artifactId>
   <packaging>pom</packaging>
   <name>Apache BookKeeper :: Parent</name>
@@ -37,9 +37,9 @@
     </license>
   </licenses>
   <scm>
-    <connection>scm:git:https://github.com/apache/bookkeeper.git</connection>
-    <developerConnection>scm:git:https://github.com/apache/bookkeeper.git</developerConnection>
-    <url>https://github.com/apache/bookkeeper</url>
+    <connection>scm:git:https://github.com/ascentstream/bookkeeper.git</connection>
+    <developerConnection>scm:git:https://github.com/ascentstream/bookkeeper.git</developerConnection>
+    <url>https://github.com/ascentstream/bookkeeper</url>
     <tag>v4.16.7-rc0</tag>
   </scm>
   <issueManagement>
