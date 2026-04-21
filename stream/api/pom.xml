@@ -19,21 +19,21 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <artifactId>stream-storage-parent</artifactId>
-    <groupId>org.apache.bookkeeper</groupId>
+    <groupId>com.ascentstream.bookkeeper</groupId>
     <version>4.17.4-SNAPSHOT</version>
     <relativePath>..</relativePath>
   </parent>
-  <groupId>org.apache.bookkeeper</groupId>
+  <groupId>com.ascentstream.bookkeeper</groupId>
   <artifactId>stream-storage-api</artifactId>
   <name>Apache BookKeeper :: Stream Storage :: API</name>
   <dependencies>
     <dependency>
-      <groupId>org.apache.bookkeeper</groupId>
+      <groupId>com.ascentstream.bookkeeper</groupId>
       <artifactId>bookkeeper-common</artifactId>
       <version>${project.parent.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.apache.bookkeeper</groupId>
+      <groupId>com.ascentstream.bookkeeper</groupId>
       <artifactId>stream-storage-common</artifactId>
       <version>${project.parent.version}</version>
     </dependency>
