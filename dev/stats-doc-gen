@@ -27,7 +27,7 @@ source ${BK_HOME}/bin/common.sh
 source ${BK_HOME}/conf/bk_cli_env.sh
 
 CLI_MODULE_PATH=stats/utils
-CLI_MODULE_NAME="(org.apache.bookkeeper.stats-)?bookkeeper-stats-utils"
+CLI_MODULE_NAME="(com.ascentstream.bookkeeper.stats-)?bookkeeper-stats-utils"
 CLI_MODULE_HOME=${BK_HOME}/${CLI_MODULE_PATH}
 
 # find the module jar
