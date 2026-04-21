@@ -20,7 +20,7 @@
   <parent>
     <artifactId>bookkeeper-tools-parent</artifactId>
     <groupId>com.ascentstream.bookkeeper</groupId>
-    <version>4.17.4-SNAPSHOT</version>
+    <version>4.17.4.0-93bb222-20260421031343-SNAPSHOT</version>
   </parent>
   <artifactId>bookkeeper-tools-ledger</artifactId>
   <name>Apache BookKeeper :: Tools :: Ledger</name>

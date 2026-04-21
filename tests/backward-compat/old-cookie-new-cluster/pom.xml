@@ -20,11 +20,11 @@
   <parent>
     <groupId>com.ascentstream.bookkeeper.tests</groupId>
     <artifactId>backward-compat</artifactId>
-    <version>4.17.4-SNAPSHOT</version>
+    <version>4.17.4.0-93bb222-20260421031343-SNAPSHOT</version>
     <relativePath>..</relativePath>
   </parent>
 
-  <groupId>org.apache.bookkeeper.tests.backward-compat</groupId>
+  <groupId>com.ascentstream.bookkeeper.tests.backward-compat</groupId>
   <artifactId>old-cookie-new-cluster</artifactId>
   <packaging>jar</packaging>
   <name>Apache BookKeeper :: Tests :: Backward Compatibility :: Test upgrade 4.1.0 to current in cluster with cookies</name>

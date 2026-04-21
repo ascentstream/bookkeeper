@@ -20,10 +20,10 @@
   <parent>
     <groupId>com.ascentstream.bookkeeper</groupId>
     <artifactId>bookkeeper</artifactId>
-    <version>4.17.4-SNAPSHOT</version>
+    <version>4.17.4.0-93bb222-20260421031343-SNAPSHOT</version>
     <relativePath>../..</relativePath>
   </parent>
-  <groupId>org.apache.distributedlog</groupId>
+  <groupId>com.ascentstream.distributedlog</groupId>
   <artifactId>distributedlog</artifactId>
   <packaging>pom</packaging>
   <name>Apache BookKeeper :: DistributedLog :: Parent</name>
@@ -53,11 +53,11 @@
           <groups>
             <group>
               <title>Core Library</title>
-              <packages>org.apache.distributedlog:org.apache.distributedlog.annotations:org.apache.distributedlog.callback:org.apache.distributedlog.exceptions:org.apache.distributedlog.feature:org.apache.distributedlog.io:org.apache.distributedlog.lock:org.apache.distributedlog.logsegment:org.apache.distributedlog.metadata:org.apache.distributedlog.namespace:org.apache.distributedlog.net:org.apache.distributedlog.stats:org.apache.distributedlog.api.subscription</packages>
+              <packages>com.ascentstream.distributedlog:com.ascentstream.distributedlog.annotations:com.ascentstream.distributedlog.callback:com.ascentstream.distributedlog.exceptions:com.ascentstream.distributedlog.feature:com.ascentstream.distributedlog.io:com.ascentstream.distributedlog.lock:com.ascentstream.distributedlog.logsegment:com.ascentstream.distributedlog.metadata:com.ascentstream.distributedlog.namespace:com.ascentstream.distributedlog.net:com.ascentstream.distributedlog.stats:org.apache.distributedlog.api.subscription</packages>
             </group>
           </groups>
           <excludePackageNames>
-            org.apache.distributedlog.acl:org.apache.distributedlog.admin:org.apache.distributedlog.auditor:org.apache.distributedlog.basic:org.apache.distributedlog.benchmark*:org.apache.distributedlog.bk:org.apache.distributedlog.ownership:org.apache.distributedlog.proxy:org.apache.distributedlog.resolver:org.apache.distributedlog.service.*:org.apache.distributedlog.config:org.apache.distributedlog.function:org.apache.distributedlog.impl*:org.apache.distributedlog.injector:org.apache.distributedlog.kafka:org.apache.distributedlog.limiter:org.apache.distributedlog.mapreduce:org.apache.distributedlog.messaging:org.apache.distributedlog.common.rate:org.apache.distributedlog.readahead:org.apache.distributedlog.selector:org.apache.distributedlog.stats:org.apache.distributedlog.thrift*:org.apache.distributedlog.tools:org.apache.distributedlog.util:org.apache.distributedlog.zk:org.apache.bookkeeper.client:org.apache.bookkeeper.stats
+            com.ascentstream.distributedlog.acl:com.ascentstream.distributedlog.admin:com.ascentstream.distributedlog.auditor:com.ascentstream.distributedlog.basic:com.ascentstream.distributedlog.benchmark*:com.ascentstream.distributedlog.bk:com.ascentstream.distributedlog.ownership:com.ascentstream.distributedlog.proxy:com.ascentstream.distributedlog.resolver:com.ascentstream.distributedlog.service.*:com.ascentstream.distributedlog.config:com.ascentstream.distributedlog.function:com.ascentstream.distributedlog.impl*:com.ascentstream.distributedlog.injector:com.ascentstream.distributedlog.kafka:com.ascentstream.distributedlog.limiter:com.ascentstream.distributedlog.mapreduce:com.ascentstream.distributedlog.messaging:com.ascentstream.distributedlog.common.rate:com.ascentstream.distributedlog.readahead:com.ascentstream.distributedlog.selector:com.ascentstream.distributedlog.stats:com.ascentstream.distributedlog.thrift*:com.ascentstream.distributedlog.tools:com.ascentstream.distributedlog.util:com.ascentstream.distributedlog.zk:org.apache.bookkeeper.client:org.apache.bookkeeper.stats
           </excludePackageNames>
         </configuration>
         <executions>

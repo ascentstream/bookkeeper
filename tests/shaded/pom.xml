@@ -21,10 +21,10 @@
   <parent>
     <groupId>com.ascentstream.bookkeeper.tests</groupId>
     <artifactId>tests-parent</artifactId>
-    <version>4.17.4-SNAPSHOT</version>
+    <version>4.17.4.0-93bb222-20260421031343-SNAPSHOT</version>
     <relativePath>..</relativePath>
   </parent>
-  <groupId>org.apache.bookkeeper.tests.shaded</groupId>
+  <groupId>com.ascentstream.bookkeeper.tests.shaded</groupId>
   <artifactId>shaded-tests-parent</artifactId>
   <name>Apache BookKeeper :: Tests :: Test Shaded Jars</name>
   <modules>
