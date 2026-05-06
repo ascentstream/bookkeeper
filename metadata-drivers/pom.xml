@@ -19,7 +19,7 @@
     <parent>
         <artifactId>bookkeeper</artifactId>
         <groupId>com.ascentstream.bookkeeper</groupId>
-        <version>4.17.4.0-75d50e9-20260506100145-SNAPSHOT</version>
+        <version>4.17.4.0-c281793-20260506111229-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ascentstream.bookkeeper.metadata.drivers</groupId>
