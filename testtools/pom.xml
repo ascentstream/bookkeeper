@@ -20,11 +20,11 @@
     <parent>
         <groupId>com.ascentstream.bookkeeper</groupId>
         <artifactId>bookkeeper</artifactId>
-        <version>4.17.4.0-75d50e9-20260422032703-SNAPSHOT</version>
+        <version>4.17.4.0-75d50e9-20260506100145-SNAPSHOT</version>
     </parent>
     <artifactId>testtools</artifactId>
     <name>Apache BookKeeper :: Test Tools</name>
-    <version>4.17.4.0-75d50e9-20260422032703-SNAPSHOT</version>
+    <version>4.17.4.0-75d50e9-20260506100145-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
