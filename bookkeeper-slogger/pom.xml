@@ -18,7 +18,7 @@
     <parent>
         <groupId>com.ascentstream.bookkeeper</groupId>
         <artifactId>bookkeeper</artifactId>
-        <version>4.16.8.0-75d50e9-20260506100354-SNAPSHOT</version>
+        <version>4.16.8.0-c281793-20260506111307-SNAPSHOT</version>
         <relativePath>..</relativePath>
     </parent>
     <packaging>pom</packaging>
