@@ -21,7 +21,7 @@
   <parent>
     <groupId>com.ascentstream.bookkeeper.tests</groupId>
     <artifactId>tests-parent</artifactId>
-    <version>4.16.8.0-75d50e9-20260421143652-SNAPSHOT</version>
+    <version>4.16.8.0-75d50e9-20260506100354-SNAPSHOT</version>
   </parent>
   <groupId>com.ascentstream.bookkeeper.tests</groupId>
   <artifactId>docker-images</artifactId>

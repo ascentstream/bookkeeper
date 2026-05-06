@@ -20,9 +20,9 @@
   <parent>
     <groupId>com.ascentstream.bookkeeper</groupId>
     <artifactId>bookkeeper</artifactId>
-    <version>4.16.8.0-75d50e9-20260421143652-SNAPSHOT</version>
+    <version>4.16.8.0-75d50e9-20260506100354-SNAPSHOT</version>
   </parent>
   <artifactId>buildtools</artifactId>
   <name>Apache BookKeeper :: Build Tools</name>
-  <version>4.16.8.0-75d50e9-20260421143652-SNAPSHOT</version>
+  <version>4.16.8.0-75d50e9-20260506100354-SNAPSHOT</version>
 </project>
