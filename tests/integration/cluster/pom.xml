@@ -21,7 +21,7 @@
   <parent>
     <groupId>com.ascentstream.bookkeeper.tests</groupId>
     <artifactId>integration</artifactId>
-    <version>4.16.8.0-c281793-20260506111307-SNAPSHOT</version>
+    <version>4.16.8.0-c281793-20260506142547-SNAPSHOT</version>
     <relativePath>..</relativePath>
   </parent>
 
