@@ -23,7 +23,7 @@
   <parent>
     <artifactId>bookkeeper-dist</artifactId>
     <groupId>com.ascentstream.bookkeeper</groupId>
-    <version>4.16.8.0-06d7252-20260507101245-SNAPSHOT</version>
+    <version>4.16.8.0</version>
     <relativePath>..</relativePath>
   </parent>
 
