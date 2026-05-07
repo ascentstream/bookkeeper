@@ -20,7 +20,7 @@
   <parent>
     <artifactId>bookkeeper-tools-parent</artifactId>
     <groupId>com.ascentstream.bookkeeper</groupId>
-    <version>4.16.8.0-06d7252-20260507100322-SNAPSHOT</version>
+    <version>4.16.8.0-06d7252-20260507101245-SNAPSHOT</version>
   </parent>
   <artifactId>bookkeeper-tools-framework</artifactId>
   <name>Apache BookKeeper :: Tools :: Framework</name>

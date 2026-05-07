@@ -23,7 +23,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.ascentstream.bookkeeper</groupId>
-  <version>4.16.8.0-06d7252-20260507100322-SNAPSHOT</version>
+  <version>4.16.8.0-06d7252-20260507101245-SNAPSHOT</version>
   <artifactId>bookkeeper</artifactId>
   <packaging>pom</packaging>
   <name>Apache BookKeeper :: Parent</name>
