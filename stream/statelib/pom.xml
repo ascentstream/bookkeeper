@@ -21,7 +21,7 @@
   <parent>
     <artifactId>stream-storage-parent</artifactId>
     <groupId>com.ascentstream.bookkeeper</groupId>
-    <version>4.17.4.0-c281793-20260506111229-SNAPSHOT</version>
+    <version>4.17.4.0</version>
     <relativePath>..</relativePath>
   </parent>
   <groupId>com.ascentstream.bookkeeper</groupId>
