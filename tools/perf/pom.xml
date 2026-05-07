@@ -17,7 +17,7 @@
   <parent>
     <groupId>com.ascentstream.bookkeeper</groupId>
     <artifactId>bookkeeper-tools-parent</artifactId>
-    <version>4.16.8.0-c281793-20260506142547-SNAPSHOT</version>
+    <version>4.16.8.0-06d7252-20260507100322-SNAPSHOT</version>
   </parent>
   <artifactId>bookkeeper-perf</artifactId>
   <name>Apache BookKeeper :: Tools :: Perf</name>
