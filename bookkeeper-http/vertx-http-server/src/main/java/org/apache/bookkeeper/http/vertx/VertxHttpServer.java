@@ -194,7 +194,7 @@ public class VertxHttpServer implements HttpServer {
                         router.delete(path).blockingHandler(handler);
                     }
                 }
-            } catch (Exception e) {
+            } catch (ReflectiveOperationException e) {
                 log.error().exception(e).attr("class", className).log("Failed to load HTTP extension");
             }
         }
