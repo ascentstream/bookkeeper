@@ -239,7 +239,7 @@ public class LedgerMetadataTest extends BookKeeperClusterTestCase {
                     assertEquals(ledgerIds[count++], ledgerId);
                 }
 
-                assertEquals(numOfLedgers, count, "Unexpected ledgers count");
+                assertEquals("Unexpected ledgers count", numOfLedgers, count);
                 try {
                     result.iterator();
                     fail("Should thrown error");
@@ -262,7 +262,7 @@ public class LedgerMetadataTest extends BookKeeperClusterTestCase {
                     assertEquals(ledgerIds[count++], ledgerId);
 
                 }
-                assertEquals(numOfLedgers, count, "Unexpected ledgers count");
+                assertEquals("Unexpected ledgers count", numOfLedgers, count);
                 try {
                     result.iterator();
                     fail("Should thrown error");
