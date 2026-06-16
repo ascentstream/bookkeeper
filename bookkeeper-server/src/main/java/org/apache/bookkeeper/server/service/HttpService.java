@@ -50,6 +50,7 @@ public class HttpService extends ServerLifecycleComponent {
         server = HttpServerLoader.get();
         checkNotNull(server, "httpServerClass is not configured or it could not be started,"
                 + " please check your configuration and logs");
+        server.setHttpExtensionClasses(conf.getServerConf().getHttpExtensions());
         server.initialize(provider);
     }
 
