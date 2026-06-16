@@ -166,10 +166,11 @@ public class VertxHttpServer implements HttpServer {
                 for (HttpEndpoint endpoint : endpoints) {
                     String path = endpoint.getPath();
                     if (path == null || !path.startsWith("/")) {
-                        LOG.warn("Skipping invalid extension path: {} (must be non-null and start with '/')", path);
+                        log.warn().attr("path", path).log(
+                                "Skipping invalid extension path (must be non-null and start with '/')");
                         continue;
                     }
-                    LOG.info("Loading HTTP extension: {} -> {}", path, className);
+                    log.info().attr("path", path).attr("class", className).log("Loading HTTP extension");
                     VertxAbstractHandler handler = new VertxAbstractHandler() {
                         @Override
                         public void handle(RoutingContext ctx) {
@@ -194,7 +195,7 @@ public class VertxHttpServer implements HttpServer {
                     }
                 }
             } catch (Exception e) {
-                LOG.error("Failed to load HTTP extension: {}", className, e);
+                log.error().exception(e).attr("class", className).log("Failed to load HTTP extension");
             }
         }
     }
