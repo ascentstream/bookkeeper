@@ -24,7 +24,7 @@
   <parent>
     <groupId>com.ascentstream.bookkeeper.metadata.drivers</groupId>
     <artifactId>metadata-drivers-parent</artifactId>
-    <version>4.17.4.0</version>
+    <version>4.17.4.1</version>
     <relativePath>..</relativePath>
   </parent>
   <groupId>com.ascentstream.bookkeeper.metadata.drivers</groupId>
